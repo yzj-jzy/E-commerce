@@ -1,0 +1,25 @@
+.single-product-container{
+    margin: 5px auto;
+    display: flex;
+    padding: 1rem 10rem;
+    justify-content: center;
+    .single-product-image{
+        margin-right: 3rem;
+        img{
+            width: 400px;
+        }
+    }
+    .single-product-main{
+        margin: 2rem 1rem;
+
+    }
+    .add-to-cart-btn{
+        .nomad-btn{
+            border: 1px solid #000;
+        }
+    }
+    .process-btn{
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+    }
+}

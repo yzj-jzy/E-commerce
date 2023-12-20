@@ -1,0 +1,21 @@
+.hero-image{
+    background-image: url("../../assets/ben-white-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-title{
+    text-align: center;
+    font-size: 2rem;
+}
+
+@media(min-width: 1024px) {
+    .hero-image {
+      font-size: 2.5rem;
+    }
+  }
+
+.shop-now-btn {
+    text-align: center;
+  }
+

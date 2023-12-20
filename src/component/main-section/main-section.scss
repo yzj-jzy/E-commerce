@@ -1,0 +1,20 @@
+.main-section-container {
+    width: 70%;
+    margin: 3rem auto;
+    display: flex;
+  
+    h2 {
+      font-size: 1.1rem;
+    }
+  
+    .main-section-description {
+        margin-left: 30px;
+        margin-top: 60px;
+        p {
+            font-size: 0.933rem;
+            line-height: 1.5;
+        }
+        
+    }
+
+  }

@@ -1,0 +1,12 @@
+.cartIcon-container{
+    cursor:pointer;
+    display:flex;
+    margin-left: auto;
+    img{
+        width: 30px;
+        height: 30px;
+    }
+    .cart-count{
+        margin-left:-10;
+    }
+}

@@ -1,0 +1,13 @@
+.product-collection-container {
+    margin: 0px 100px;
+}
+
+.featured-collection{
+    font-size: 2rem;
+}
+.product-item{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* 水平方向上平均分布项目 */
+    margin-top: 20px;
+}

@@ -1,0 +1,17 @@
+.product-container{
+    border: 1px solid rgb(0,0,0,0.125);
+    padding: 1rem;
+    margin-left: 1rem;
+    img{
+        cursor:pointer;
+    }
+    .nomad-btns{
+        border: black solid 1px;
+    
+    }
+}
+
+.product-container{
+    width: calc(20% - 10px); /* 设置每个项目的宽度，减去一些间隔 */
+    margin: 5px; /* 项目之间的间隔 */
+}

@@ -11,7 +11,7 @@ const SingleProduct = (props)=>{
     const productID = useParams()['id'];
     const [product,setProduct] = useState(null);
     const navigate = useNavigate(); 
-    const {addProduct,cartItem}  = useContext(CartContext);
+    const {addProduct}  = useContext(CartContext);
 
     useEffect(
         ()=>{ 
@@ -20,7 +20,7 @@ const SingleProduct = (props)=>{
                 return navigate('/Shop');
             }
             setProduct(product);
-            const {id,title,description,imageUrl,price} = product;
+            
         }, [productID,products]
     )
     if (!product) { return null };

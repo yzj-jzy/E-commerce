@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import './cartPage.styles.scss';
 
 const CartPage = ()=>{
-    const {addProduct,cartItem}  = useContext(CartContext);
+    const {cartItem}  = useContext(CartContext);
     console.log('item selected so far: '+cartItem);
 
     const cartItemTAG = cartItem.map(

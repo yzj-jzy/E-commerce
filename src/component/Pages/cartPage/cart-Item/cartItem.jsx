@@ -4,8 +4,8 @@ import {MinusCircleIcon,PlusCircleIcon,TrashIcon} from '../../../icons/index';
 import { useContext } from 'react';
 
 const CartItem = (props)=>{
-    const {id,title,imageUrl,description,price,quantity} = props;
-    const {cartItem,addProduct,removeProduct} = useContext(CartContext);
+    const {title,imageUrl,price,quantity} = props;
+    const {addProduct,removeProduct} = useContext(CartContext);
     return(
         <div className='cart-item-container'>
             <img src={imageUrl}></img>

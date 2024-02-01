@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../../context/cart-context';
-import { useNavigate } from 'react-router-dom';
 import Layout from '../layout/Layout';
 import { countAndPrice,fetchFromAPI } from '../../Helper';
 import { useStripe } from '@stripe/react-stripe-js';
@@ -11,7 +10,6 @@ const Checkout = ()=>{
     const {count,totalPrice} = countAndPrice(cartItem);
     const stripe = useStripe();
     const [email,setEmail] = useState('');
-    const navigate = useNavigate(); 
 
     const handleGuestCheckout = async (e) => {
         e.preventDefault();
@@ -36,7 +34,7 @@ const Checkout = ()=>{
         });
     
         const { sessionId } = response;
-        if(sessionId == 'bad request'){
+        if(sessionId === 'bad request'){
             return;
         }
         const { error } = await stripe.redirectToCheckout({

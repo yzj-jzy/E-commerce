@@ -1,4 +1,3 @@
-import { json } from "react-router-dom";
 import { isInCart } from "../Helper";
 
 const cartReducer = (state,action)=>{
@@ -32,7 +31,7 @@ const cartReducer = (state,action)=>{
         case 'CLEAR':
             state = {cartItem:[]};
             localStorage.setItem('cart',JSON.stringify(state));
-
+        break 
         default:
             return state;
     }

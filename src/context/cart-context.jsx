@@ -8,10 +8,12 @@ const CartContextProvider = ({children}) =>{
 
     const addProduct = (product) => dispatch({type:'ADD', payload:product});
     const removeProduct = (product) => dispatch({type:'REMOVE', payload:product});
+    const clearProduct = () => dispatch({type:'CLEAR'});
     const contextValue = {
         ...cartState,
         addProduct,
-        removeProduct
+        removeProduct,
+        clearProduct
     }
 
     return(

@@ -1,3 +1,4 @@
+import { json } from "react-router-dom";
 import { isInCart } from "../Helper";
 
 const cartReducer = (state,action)=>{
@@ -28,6 +29,10 @@ const cartReducer = (state,action)=>{
                 localStorage.setItem('cart',JSON.stringify(state));
                 return{...state};
             }
+        case 'CLEAR':
+            state = {cartItem:[]};
+            localStorage.setItem('cart',JSON.stringify(state));
+
         default:
             return state;
     }

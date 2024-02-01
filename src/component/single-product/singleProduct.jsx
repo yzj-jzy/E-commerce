@@ -13,16 +13,16 @@ const SingleProduct = (props)=>{
     const navigate = useNavigate(); 
     const {addProduct}  = useContext(CartContext);
 
-    useEffect(
-        ()=>{ 
-            const product = products.find( product => Number(product.id) === Number(productID) );
-            if(!product){
-                return navigate('/Shop');
-            }
-            setProduct(product);
-            
-        }, [productID,products]
-    )
+    useEffect(() => {
+        const product = products.find(product => Number(product.id) === Number(productID));
+        if (!product) {
+            return navigate('/Shop');
+        }
+        setProduct(product);
+    
+        // Include 'navigate' in the dependency array
+    }, [productID, products, navigate]);
+    
     if (!product) { return null };
     const { imageUrl, title, price, description } = product;
     const toCartRoute = () => {navigate('/cart');};
@@ -31,7 +31,7 @@ const SingleProduct = (props)=>{
         <Layout>
             <div className='single-product-container'>
                 <div className='single-product-image'>
-                    <img src={imageUrl}/> 
+                    <img src={imageUrl} alt='shopping-cart-icon'/> 
                 </div>
 
                 <div className='single-product-main'>

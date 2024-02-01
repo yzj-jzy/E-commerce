@@ -4,11 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '../../layout/Layout';
 
 const Success = ()=>{
-    const {cartItem,clearProduct} = useContext(CartContext);
+    const {clearProduct} = useContext(CartContext);
     const navigate = useNavigate();
-    useEffect(()=>{
+    useEffect(() => {
         clearProduct();
-    },[]);
+    }, [clearProduct]);
+    
     const directShop = ()=>{
         navigate(`/shop`);
     }

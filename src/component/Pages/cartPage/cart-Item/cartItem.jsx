@@ -1,6 +1,6 @@
 import {CartContext} from '../../../../context/cart-context';
 import './cartItem.styles.scss';
-import {MinusCircleIcon,PlusCircleIcon,TrashIcon} from '../../../icons/index';
+import {MinusCircleIcon,PlusCircleIcon} from '../../../icons/index';
 import { useContext } from 'react';
 
 const CartItem = (props)=>{
@@ -8,7 +8,7 @@ const CartItem = (props)=>{
     const {addProduct,removeProduct} = useContext(CartContext);
     return(
         <div className='cart-item-container'>
-            <img src={imageUrl}></img>
+            <img src={imageUrl} alt='shopping-cart-icon'></img>
             <div className='title-price'>
                 <h3>{title}</h3>
                 <p>${price*quantity}</p>

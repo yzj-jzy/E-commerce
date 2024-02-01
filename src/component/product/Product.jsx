@@ -16,7 +16,7 @@ const Product = (props) =>{
     return(
         <div className='product-container'>
             <div className='product-image' onClick={handleImageClick}>
-                <img src={imageUrl}></img>
+                <img src={imageUrl} alt='shopping-cart-icon'></img>
             </div>
             <div className='product-main-section'>
                 <h3> {title} </h3>

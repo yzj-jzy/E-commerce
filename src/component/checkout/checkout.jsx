@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../../context/cart-context';
 import Layout from '../layout/Layout';
-import { countAndPrice,fetchFromAPI } from '../../Helper';
+import { countAndPrice } from '../../Helper';
 import { useStripe } from '@stripe/react-stripe-js';
 import './checkout.styles.scss';
 
@@ -11,41 +11,56 @@ const Checkout = ()=>{
     const stripe = useStripe();
     const [email,setEmail] = useState('');
 
-    const handleGuestCheckout = async (e) => {
-        e.preventDefault();
-        const line_items = cartItem.map(item => {
+    async function handleGuestCheckout(e) {
+      e.preventDefault();
+  
+      const line_items = cartItem.map(item => {
           return {
-            quantity: count,
-            price_data: {
-              currency: 'usd',
-              unit_amount: item.price * 100, // amount is in cents
-              product_data: {
-                name: item.title,
-                description: item.description,
-                images: [item.imageUrl], 
-              }
-            }
-          }
-        });
-        
-    
-        const response = await fetchFromAPI('createCheckoutSession', {
-          body: { line_items, customer_email: email },
-        });
-    
-        const { sessionId } = response;
-        if(sessionId === 'bad request'){
-            return;
-        }
+              quantity: count,
+              price_data: {
+                  currency: 'usd',
+                  unit_amount: item.price * 100,
+                  product_data: {
+                      name: item.title,
+                      description: item.description,
+                      images: [item.imageUrl],
+                  },
+              },
+          };
+      });
+  
+      const endpoint = 'https://deft-taffy-a0c825.netlify.app/.netlify/functions/api/add ';
+
+      const requestData = {
+          line_items: line_items,
+          customer_email: email,
+      };
+
+      console.log(requestData);
+  
+      try {
+          const response = await fetch(endpoint, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(requestData),
+          });
+
+          const responseData = await response.json();
+          const { sessionId } = responseData;
+          
         const { error } = await stripe.redirectToCheckout({
           sessionId
         });
-        
-        if (error) {
-          console.log(error);
-        }
+          
+          
+      } catch (error) {
+          console.error('Fetch error:', error.message);
+          throw error;
       }
-
+  }
+  
     return(   
        <Layout>
             <div className='checkout'>

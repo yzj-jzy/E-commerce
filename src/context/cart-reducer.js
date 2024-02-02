@@ -31,6 +31,7 @@ const cartReducer = (state,action)=>{
         case 'CLEAR':
             state = {cartItem:[]};
             localStorage.setItem('cart',JSON.stringify(state));
+            break;
         default:
             return state;
     }

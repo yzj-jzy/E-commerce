@@ -53,6 +53,10 @@ const Checkout = ()=>{
         const { error } = await stripe.redirectToCheckout({
           sessionId
         });
+
+        if(error){
+          throw error;
+        }
           
           
       } catch (error) {

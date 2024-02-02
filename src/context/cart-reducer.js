@@ -29,9 +29,10 @@ const cartReducer = (state,action)=>{
                 return{...state};
             }
         case 'CLEAR':
-            state = {cartItem:[]};
-            localStorage.setItem('cart',JSON.stringify(state));
-            break;
+            const newState = {cartItem: []};
+            localStorage.setItem('cart', JSON.stringify(newState));
+            return newState;
+        break
         default:
             return state;
     }
